@@ -1,0 +1,74 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  IconAppStore,
+  IconArchive,
+  IconBookmark,
+  IconCodepen,
+  IconExternal,
+  IconFolder,
+  IconFork,
+  IconGitHub,
+  IconInstagram,
+  IconLinkedin,
+  IconLoader,
+  IconLogo,
+  IconPlayStore,
+  IconStar,
+  IconTwitter,
+  IconLeetCode,
+  IconCodeforces,
+  IconCodeChef,
+  IconGeeksforGeeks,
+} from '@components/icons';
+
+const Icon = ({ name }) => {
+  switch (name) {
+    case 'AppStore':
+      return <IconAppStore />;
+    case 'Previous Portfolio':
+      return <IconArchive />;
+    case 'Bookmark':
+      return <IconBookmark />;
+    case 'Codepen':
+      return <IconCodepen />;
+    case 'External':
+      return <IconExternal />;
+    case 'Folder':
+      return <IconFolder />;
+    case 'Fork':
+      return <IconFork />;
+    case 'GitHub':
+      return <IconGitHub />;
+    case 'Instagram':
+      return <IconInstagram />;
+    case 'Linkedin':
+      return <IconLinkedin />;
+    case 'Loader':
+      return <IconLoader />;
+    case 'Logo':
+      return <IconLogo />;
+    case 'PlayStore':
+      return <IconPlayStore />;
+    case 'Star':
+      return <IconStar />;
+    case 'Twitter':
+      return <IconTwitter />;
+    case 'LeetCode':
+      return <IconLeetCode />;
+    case 'Codeforces':
+      return <IconCodeforces />;
+    case 'CodeChef':
+      return <IconCodeChef />;
+    case 'GeeksforGeeks':
+      return <IconGeeksforGeeks />;
+    default:
+      return <IconExternal />;
+  }
+};
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default Icon;
