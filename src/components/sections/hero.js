@@ -101,6 +101,15 @@ const Hero = () => {
 
   return (
     <StyledHeroSection>
+      {!isMounted && !prefersReducedMotion && (
+        <>
+          {items.map((item, i) => (
+            <div key={`placeholder-${i}`} style={{ visibility: 'hidden' }}>
+              {item}
+            </div>
+          ))}
+        </>
+      )}
       {prefersReducedMotion ? (
         <>
           {items.map((item, i) => (
