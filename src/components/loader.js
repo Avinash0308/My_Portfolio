@@ -18,9 +18,12 @@ const StyledLoader = styled.div`
   z-index: 99;
 
   .logo-wrapper {
-    width: max-content;
-    max-width: 100px;
-    transition: var(--transition);
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    transition: opacity 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     opacity: ${props => (props.isMounted ? 1 : 0)};
     svg {
       display: block;
@@ -59,12 +62,25 @@ const Loader = ({ finishLoading }) => {
         opacity: 1,
       })
       .add({
-        targets: '#logo',
+        targets: '.logo-wrapper',
         delay: 500,
-        duration: 300,
-        easing: 'easeInOutQuart',
-        opacity: 0,
-        scale: 0.1,
+        duration: 800,
+        top: { value: 28.125, easing: 'easeOutSine' },
+        left: {
+          value: () => {
+            if (window.innerWidth <= 768) return 24.125;
+            if (window.innerWidth <= 1080) return 39.125;
+            return 49.125;
+          },
+          easing: 'easeInSine',
+        },
+        width: { value: 43.75, easing: 'easeInOutQuart' },
+        height: { value: 43.75, easing: 'easeInOutQuart' },
+        filter: [
+          { value: 'drop-shadow(0px 0px 0px rgba(100, 255, 218, 0))', duration: 0 },
+          { value: 'drop-shadow(15px 15px 15px rgba(100, 255, 218, 0.6))', duration: 400, easing: 'easeOutQuad' },
+          { value: 'drop-shadow(0px 0px 0px rgba(100, 255, 218, 0))', duration: 400, easing: 'easeInQuad' }
+        ],
       })
       .add({
         targets: '.loader',
@@ -72,7 +88,7 @@ const Loader = ({ finishLoading }) => {
         easing: 'easeInOutQuart',
         opacity: 0,
         zIndex: -1,
-      });
+      }, '-=200');
   };
 
   useEffect(() => {
