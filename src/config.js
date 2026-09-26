@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       name: 'Previous Portfolio',
-      url: 'https://github.com/Avinash0308/Avinash_PortFolio',
+      url: 'https://avinashagrawal.netlify.app',
     },
   ],
 

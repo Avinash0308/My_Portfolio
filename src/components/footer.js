@@ -32,9 +32,19 @@ const StyledSocialLinks = styled.div`
 
     a {
       padding: 10px;
+      display: flex;
+      align-items: center;
+      
       svg {
         width: 20px;
         height: 20px;
+      }
+      
+      .label {
+        margin-left: 5px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
       }
     }
   }
@@ -60,6 +70,7 @@ const Footer = () => (
             <li key={i}>
               <a href={url} aria-label={name}>
                 <Icon name={name} />
+                {name === 'Previous Portfolio' && <span className="label">v1 ↗</span>}
               </a>
             </li>
           ))}

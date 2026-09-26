@@ -29,6 +29,9 @@ const StyledSocialList = styled.ul`
 
     a {
       padding: 10px;
+      display: flex;
+      align-items: center;
+      position: relative;
 
       &:hover,
       &:focus {
@@ -38,6 +41,15 @@ const StyledSocialList = styled.ul`
       svg {
         width: 20px;
         height: 20px;
+      }
+
+      .label {
+        position: absolute;
+        left: calc(100% - 5px);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        white-space: nowrap;
       }
     }
   }
@@ -51,6 +63,7 @@ const Social = ({ isHome }) => (
           <li key={i}>
             <a href={url} aria-label={name} target="_blank" rel="noreferrer">
               <Icon name={name} />
+              {name === 'Previous Portfolio' && <span className="label">v1 ↗</span>}
             </a>
           </li>
         ))}

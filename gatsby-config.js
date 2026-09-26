@@ -2,7 +2,7 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'My Portfolio',
+    title: 'Avinash Agrawal',
     description:
       'Avinash Agrawal is a Software Development Engineer specializing in building scalable backend systems, AI applications, and modern web platforms.',
     siteUrl: 'https://avinashagrawal.netlify.app', // No trailing slash allowed!
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'My Portfolio',
-        short_name: 'Portfolio',
+        name: 'Avinash Agrawal',
+        short_name: 'Avinash',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
