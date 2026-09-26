@@ -14,7 +14,9 @@ const StyledAboutSection = styled.section`
     grid-gap: 50px;
 
     @media (max-width: 768px) {
-      display: block;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 50px;
     }
   }
 `;
@@ -51,7 +53,7 @@ const StyledPic = styled.div`
   max-width: 300px;
 
   @media (max-width: 768px) {
-    margin: 50px auto 0;
+    margin: 0 auto;
     width: 70%;
   }
 

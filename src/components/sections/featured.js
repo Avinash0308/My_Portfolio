@@ -34,6 +34,8 @@ const StyledProject = styled.li`
 
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.boxShadow};
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   &:not(:last-of-type) {
@@ -109,7 +111,6 @@ const StyledProject = styled.li`
       flex-direction: column;
       justify-content: center;
       height: 100%;
-      grid-column: 1 / -1;
       padding: 40px 40px 30px;
       z-index: 5;
     }
@@ -254,6 +255,21 @@ const StyledProject = styled.li`
   }
 
   .project-image {
+    &.mobile-image {
+      display: none;
+      @media (max-width: 768px) {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 25px;
+      }
+    }
+
+    &.desktop-image {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
     ${({ theme }) => theme.mixins.boxShadow};
     grid-column: 7 / -1;
     grid-row: 1 / -1;
@@ -294,9 +310,7 @@ const StyledProject = styled.li`
     }
 
     @media (max-width: 768px) {
-      grid-column: 1 / -1;
-      height: 100%;
-      opacity: 0.25;
+      width: 100%;
     }
 
     a {
@@ -346,7 +360,6 @@ const StyledProject = styled.li`
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
       }
     }
   }
@@ -417,6 +430,12 @@ const Featured = () => {
                       <a href={external}>{title}</a>
                     </h3>
 
+                    <div className="project-image mobile-image">
+                      <a href={external ? external : github ? github : '#'}>
+                        <GatsbyImage image={image} alt={title} className="img" />
+                      </a>
+                    </div>
+
                     <div
                       className="project-description"
                       dangerouslySetInnerHTML={{ __html: html }}
@@ -450,7 +469,7 @@ const Featured = () => {
                   </div>
                 </div>
 
-                <div className="project-image">
+                <div className="project-image desktop-image">
                   <a href={external ? external : github ? github : '#'}>
                     <GatsbyImage image={image} alt={title} className="img" />
                   </a>

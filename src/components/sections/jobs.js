@@ -13,7 +13,7 @@ const StyledJobsSection = styled.section`
   .inner {
     display: flex;
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       display: block;
     }
 
@@ -32,7 +32,7 @@ const StyledTabList = styled.div`
   margin: 0;
   list-style: none;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     display: flex;
     overflow-x: auto;
     width: calc(100% + 100px);
@@ -46,9 +46,9 @@ const StyledTabList = styled.div`
     margin-left: -25px;
   }
 
-  li {
+  button {
     &:first-of-type {
-      @media (max-width: 600px) {
+      @media (max-width: 768px) {
         margin-left: 50px;
       }
       @media (max-width: 480px) {
@@ -56,7 +56,7 @@ const StyledTabList = styled.div`
       }
     }
     &:last-of-type {
-      @media (max-width: 600px) {
+      @media (max-width: 768px) {
         padding-right: 50px;
       }
       @media (max-width: 480px) {
@@ -82,14 +82,13 @@ const StyledTabButton = styled.button`
   white-space: nowrap;
 
   @media (max-width: 768px) {
-    padding: 0 15px 2px;
-  }
-  @media (max-width: 600px) {
     ${({ theme }) => theme.mixins.flexCenter};
     min-width: 120px;
+    width: max-content;
+    flex-shrink: 0;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    border-bottom: 2px solid ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--lightest-navy)')};
     text-align: center;
   }
 
@@ -112,17 +111,8 @@ const StyledHighlight = styled.div`
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
 
-  @media (max-width: 600px) {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    max-width: var(--tab-width);
-    height: 2px;
-    margin-left: 50px;
-    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
-  }
-  @media (max-width: 480px) {
-    margin-left: 25px;
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -131,7 +121,7 @@ const StyledTabPanels = styled.div`
   width: 100%;
   margin-left: 20px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     margin-left: 0;
   }
 `;
